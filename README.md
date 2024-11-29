@@ -80,4 +80,7 @@ https://three81project-group42.onrender.com/
   ```bash
   curl -X POST -d "bookName=helllllllllo" -d "rating=8" https://three81project-group42.onrender.com/api/books/
   ```
-
+  ## UPDATE
+  ```bash
+  curl -X PUT -F "rating=9" https://three81project-group42.onrender.com/api/books/bookName/
+ ```
