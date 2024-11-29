@@ -36,6 +36,31 @@ const client = new MongoClient(mongourl, {
     }
 });
 
+const users = new Array(
+    {name: 'Alex', password: '123'},
+    {name: 'Bobby', password: '123'}, 
+    {name: 'Carmen', password: '123'},
+    {name: 'Daisy', password: '123'},
+    {name: 'Eason', password: '123'}    
+    );
+
+    app.get('/login', async (req, res) => {
+
+        res.status(200).render('login');
+    });
+    
+    app.post('/login', (req, res) => {
+
+        const checkuser = users.find(user =>
+            user.name === req.body.name && user.password === req.body.password
+        );
+        if (checkuser) {
+            return res.redirect('/libraries');
+        } else {
+            return res.redirect('/libraries');
+        }
+    });
+
 
 const insertDocument = async (db, doc) => {
     var collection = db.collection(collectionNameBooks);
@@ -121,36 +146,6 @@ app.use((req, res, next) => {
     next();
 });
 
-// GET /login
-app.get("/login", (req, res) => {
-    res.status(200).render('login'); // Render your login view
-});
-
-// POST /login
-app.post('/login', async (req, res) => {
-    const username = req.body.name;
-    const password = req.body.password;
-
-    try {
-        // Find user by username
-        const usern = await User.findOne({ username });
-        const userp = await User.findOne({ password });
-
-        if (!usern) {
-            return res.status(401).send('Invalid username or password.');
-        }
-
-        // Check password
-        if (userp.password === password) {
-            res.redirect('/libraries'); // Redirect if credentials are valid
-        } else {
-            res.status(401).send('Invalid username or password.');
-        }
-    } catch (error) {
-        console.error(error);
-        res.status(500).send('Internal server error.');
-    }
-});
 
 // Facebook authentication routes
 app.get("/auth/facebook", passport.authenticate("facebook", { scope: "email" }));
@@ -279,7 +274,7 @@ app.get('/new', (req, res) => {
 // Main route
 app.get('/', (req, res) => {
     handle_Find(req, res, req.query.docs);
-    res.redirect('/login');
+    res.redirect('/libraries');
 });
 
 // Route to display libraries
@@ -290,6 +285,10 @@ app.get('/libraries',  async (req, res) => {
     res.render('libraries', { books: docs, user: req.user });
 });
 
+// app.post('/loginA', (req, res) => {
+//     handle_Find(req, res, req.query.docs);
+//     res.status(404).render('libraries');
+// });
 // Route for creating a new book
 app.get('/create',  (req, res) => {
     res.status(200).render('new', { user: req.user });
@@ -420,6 +419,9 @@ app.delete('/api/books/:bookName', async (req, res) => {
     }
 });
 
+
+
+
 // Route for user registration
 app.get('/register', (req, res) => {
     res.status(404).render('register', { message: `${req.path} - Unknown request!` });
@@ -427,7 +429,7 @@ app.get('/register', (req, res) => {
 
 // Catch-all route for unknown requests
 app.get('/*', (req, res) => {
-    res.status(404).render('login', { message: `${req.path} - Unknown request!` });
+    res.status(404).render('libraries', { message: `${req.path} - Unknown request!` });
 });
 
 // Start the server
