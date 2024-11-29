@@ -429,7 +429,7 @@ app.get('/register', (req, res) => {
 
 // Catch-all route for unknown requests
 app.get('/*', (req, res) => {
-    res.status(404).render('libraries', { message: `${req.path} - Unknown request!` });
+    res.status(404).render('login', { message: `${req.path} - Unknown request!` });
 });
 
 // Start the server
