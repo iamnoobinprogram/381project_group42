@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Book</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f4f4f4 0%, #e0e0e0 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2em;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input[type="text"], input[type="number"] {
+            padding: 10px;
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            font-size: 1em;
+        }
+
+        input[type="submit"] {
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            background-color: #5cb85c;
+            color: white;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4cae4c;
+        }
+
+        .logout-section {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add New Book</h1>
+        <form action="/create" method="POST" enctype="multipart/form-data">
+            <label for="bookName">Book Title:</label>
+            <input type="text" name="bookName" id="bookName" required>
+
+            <label for="rating">Rating (1-10):</label>
+            <input type="number" name="rating" id="rating" min="1" max="10" required>
+
+            <input type="submit" value="Create">
+        </form>
+
+        <div class="logout-section">
+            <form action="/libraries" method="GET">
+                <button type="submit" class="btn-danger">
+                    <i class=""></i> Back
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</body>
+</html>

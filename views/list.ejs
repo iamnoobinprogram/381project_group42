@@ -1,0 +1,18 @@
+<html>
+    <body>
+        <H1>Welcome</H1>
+		<hr/>
+        <ul>
+
+        <li>
+            <strong><%= books.bookName %></strong> - Rating: <%= books.rating %>
+            <a href="/books/edit/<%= books.bookName %>">Edit</a>
+            <a href="/books/delete/<%= books.bookName %>">Delete</a>
+        </li>
+
+</ul>
+<a href="/books/new">Add New Book</a>
+        <a href='/create'>Create a New Booking</a>
+		<p><a href='/logout'>Logout</a></p>
+    </body>
+</html>
