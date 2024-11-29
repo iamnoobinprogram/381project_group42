@@ -1,6 +1,6 @@
 # 381project_group42
 ## Project Name
-**Book Share Website**
+**Book-sharing website**
 ## Group Information
 - **Group No.:** 381project-42
 - **Students’ Names and SIDs:**
@@ -11,7 +11,7 @@
   
 
 ## Project Overview
-This Book Share Website is designed to let people share books and give them a rating. It includes user authentication and to create, edit, and delete books. It also provide a clean user interface for users to manage the books list.
+This Book-sharing website is designed to let people share and rate books. It includes user authentication as well as creating, editing, and deleting books. It also provides users with a clean user interface to manage book lists.
 
 # Project file intro
 
