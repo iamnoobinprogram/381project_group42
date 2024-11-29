@@ -66,13 +66,13 @@ https://three81project-group42.onrender.com/
   
   Test:
   ```bash
-  curl -X GET http://localhost:8099/api/books
+  curl -X GET http://three81project-group42.onrender.com/api/books
   ```
   ## DELETE
   **Path url:** `/api/books/:bookName`
   Test:
   ```bash
-  curl -X DELETE http://localhost:8099/api/books/bookName
+  curl -X DELETE http://three81project-group42.onrender/api/books/bookName
   ```
   ## ADD
   Test:
