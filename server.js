@@ -166,7 +166,7 @@ const handle_Create = async (req, res) => {
     };
 
     await insertDocument(db, newDoc);
-    res.redirect('/');
+    res.redirect('/libraries');
 }
 
 const handle_User_Create = async (req, res) => {
@@ -243,7 +243,7 @@ const handle_Update = async (req, res, criteria) => {
         // You may want to process the uploaded file here
     }
     const results = await updateDocument(db, DOCID, updateData);
-    res.redirect('/');
+    res.redirect('/libraries');
 }
 
 // Handle book deletion
@@ -256,7 +256,7 @@ const handle_Delete = async (req, res) => {
     if (docs.length > 0) {
         await deleteDocument(db, DOCID);
     }
-    res.redirect('/');
+    res.redirect('/libraries');
 }
 
 /* End of CRUD handler functions */
@@ -426,7 +426,7 @@ app.get('/register', (req, res) => {
 
 // Catch-all route for unknown requests
 app.get('/*', (req, res) => {
-    res.status(404).render('libraries', { message: `${req.path} - Unknown request!` });
+    res.status(404).render('login', { message: `${req.path} - Unknown request!` });
 });
 
 // Start the server
