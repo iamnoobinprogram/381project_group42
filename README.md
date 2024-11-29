@@ -74,4 +74,11 @@ https://three81project-group42.onrender.com/
   ```bash
   curl -X DELETE http://localhost:8099/api/books/bookName
   ```
-
+  ## ADD
+  Test:
+  ```bash
+  curl -X POST http://localhost:8099/api/books/
+  -H "Content-Type: application/json" \
+  -d '{"bookName": "helloworld",
+  "rating": "8"}'
+  ```
