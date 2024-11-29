@@ -8,21 +8,41 @@
   - Yip Chi Shing (SID: 13143800)
   - Wong Chi Pan (SID: 13697997)
   - To Hong (SID: 13728710)
+  
+
+## Project Overview
+This Book Share Website is designed to let people share books and give them a rating. It includes user authentication and to create, edit, and delete books. It also provide a clean user interface for users to manage the books list.
 
 # Project file intro
 
   server.js: a brief summary of functionalities it provided,
   it contains the functional code of the entire system (such as login, logout, CRUD functions)
   package.json: lists of dependencies
-  views: what EJS or UI files included
-  models: what model files included
+  views: EJS files included, 
+  - libraries.ejs (to show book info here)
+  - edit.ejs (to edit book info here)
+  - login.ejs (to login)
+  - LoginAC.ejs (islogin)
+  - new.ejs (to create book)
+  - register.ejs (to register)
+  models: model files included,
+  - users.js 
+  1. **user name**
+  2. **password**
+  - books.js
+  1. **user name**
+  2. **libraries** (a list include bookName and rating)
 # Cloud URL
 
+https://three81project-group42.onrender.com/
+
 # Operation guides
-  ## login function
+  ## Login function
   In the login page, user can chose using username and password to login or use facebook to login, 
   moreover, new user can create a new account.
-  ## list function
+  ## Logout function
+  Users can log out of their accounts by clicking the logout button on the home page.
+  ## List function
   When user login success, they will locate to the main page,the main page will list all the book in
   the database.
   In the main page, user can create, edit and delete the book that they want through the buttons.
@@ -33,11 +53,17 @@
   User click the "edit" button to edit the book and locate to the edit page
   User can enter the book title and rating to edit the book that they chose.
   ## Delete function
-  User click the "delete" button to detele the book that they chose.
+  User click the "delete" button to detele the book that they choose.
 
+# SET UP
+  ```bash
+  npm install
+  npm start
+  ```
 # RESTful CRUD
   ## GET
   **Path url:** `/api/books`
+  
   Test:
   ```bash
   curl -X GET http://localhost:8099/api/books
@@ -48,9 +74,4 @@
   ```bash
   curl -X DELETE http://localhost:8099/api/books/bookName
   ```
-# Project Information
 
-
-
-## Project Overview
-This Book Share Website is designed to let people share books and give them a rating.
