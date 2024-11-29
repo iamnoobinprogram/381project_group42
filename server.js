@@ -274,7 +274,7 @@ app.get('/new', (req, res) => {
 // Main route
 app.get('/', (req, res) => {
     handle_Find(req, res, req.query.docs);
-    res.redirect('/libraries');
+    res.redirect('/login');
 });
 
 // Route to display libraries
