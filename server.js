@@ -97,7 +97,7 @@ app.use(passport.session());
 passport.use(new FacebookStrategy({
     clientID: '1279370179945477',
     clientSecret: '431cd6f211bf95468cc3adfd333263f9',
-    callbackURL: 'http://localhost:8099/auth/facebook/callback'
+    callbackURL: 'https://three81project-group42.onrender.com/auth/facebook/callback'
 },
     function (token, refreshToken, profile, done) {
         console.log("Facebook Profile: " + JSON.stringify(profile));
