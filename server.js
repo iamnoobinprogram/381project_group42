@@ -250,18 +250,18 @@ app.use(formidable());
 // Library Management Routes
 
 // Route to display the form for adding a new book
-app.get('/new', isLoggedIn, (req, res) => {
+app.get('/new', (req, res) => {
     res.render('new', { user: req.user });
 });
 
 // Main route
-app.get('/', isLoggedIn, (req, res) => {
+app.get('/',  (req, res) => {
     handle_Find(req, res, req.query.docs);
     res.redirect('/libraries');
 });
 
 // Route to display libraries
-app.get('/libraries', isLoggedIn, async (req, res) => {
+app.get('/libraries', async (req, res) => {
     await client.connect();
     const db = client.db(dbName);
     const docs = await findDocument(db, {});
@@ -269,37 +269,37 @@ app.get('/libraries', isLoggedIn, async (req, res) => {
 });
 
 // Route for creating a new book
-app.get('/create', isLoggedIn, (req, res) => {
+app.get('/create',  (req, res) => {
     res.status(200).render('new', { user: req.user });
 });
 
 // Handle creation of a new book
-app.post('/create', isLoggedIn, (req, res) => {
+app.post('/create', (req, res) => {
     handle_Create(req, res);
 });
 
 // Route for book details
-app.get('/details', isLoggedIn, (req, res) => {
+app.get('/details', (req, res) => {
     handle_Details(req, res, req.query);
 });
 
 // Route for editing a book
-app.get('/edit', isLoggedIn, (req, res) => {
+app.get('/edit',  (req, res) => {
     handle_Edit(req, res, req.query);
 });
 
 // Handle updating a book
-app.post('/update', isLoggedIn, (req, res) => {
+app.post('/update',(req, res) => {
     handle_Update(req, res, req.query);
 });
 
 // Handle new book creation
-app.post('/new', isLoggedIn, (req, res) => {
+app.post('/new',  (req, res) => {
     handle_Create(req, res, req.query);
 });
 
 // Route for deleting a book
-app.get('/delete', isLoggedIn, (req, res) => {
+app.get('/delete', (req, res) => {
     handle_Delete(req, res);
 });
 
