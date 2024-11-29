@@ -66,19 +66,26 @@ https://three81project-group42.onrender.com/
   
   Test:
   ```bash
-  curl -X GET http://three81project-group42.onrender.com/api/books
+  curl -X GET https://three81project-group42.onrender.com/api/books/
   ```
-  ## DELETE
-  **Path url:** `/api/books/:bookName`
-  Test:
+  ## DELETE book
+  **Path url:** `/api/books/bookName`  (example:Learn , How):
+  curl -X DELETE https://three81project-group42.onrender.com/api/books/How/
+  
   ```bash
-  curl -X DELETE http://three81project-group42.onrender/api/books/bookName
+  curl -X DELETE https://three81project-group42.onrender.com/api/books/bookName/
   ```
   ## ADD
   Test:
   ```bash
-  curl -X POST http://localhost:8099/api/books/
-  -H "Content-Type: application/json" \
-  -d '{"bookName": "helloworld",
-  "rating": "8"}'
+  curl -X POST -d "bookName=helllllllllo" -d "rating=8" https://three81project-group42.onrender.com/api/books/
   ```
+  ## DELETE user
+  **Path url:** `/api/users/username`  (example:benten , alex):
+  curl -X DELETE https://three81project-group42.onrender.com/api/users/alex/
+  
+  ```bash
+  curl -X DELETE https://three81project-group42.onrender.com/api/users/username/
+  ```
+
+  
