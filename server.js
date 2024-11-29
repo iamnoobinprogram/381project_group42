@@ -285,10 +285,7 @@ app.get('/libraries',  async (req, res) => {
     res.render('libraries', { books: docs, user: req.user });
 });
 
-// app.post('/loginA', (req, res) => {
-//     handle_Find(req, res, req.query.docs);
-//     res.status(404).render('libraries');
-// });
+
 // Route for creating a new book
 app.get('/create',  (req, res) => {
     res.status(200).render('new', { user: req.user });
@@ -429,7 +426,7 @@ app.get('/register', (req, res) => {
 
 // Catch-all route for unknown requests
 app.get('/*', (req, res) => {
-    res.status(404).render('libraries', { message: `${req.path} - Unknown request!` });
+    res.status(404).render('login', { message: `${req.path} - Unknown request!` });
 });
 
 // Start the server
