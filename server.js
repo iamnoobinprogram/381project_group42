@@ -274,7 +274,7 @@ app.get('/new', (req, res) => {
 // Main route
 app.get('/', (req, res) => {
     handle_Find(req, res, req.query.docs);
-    res.redirect('/login');
+    res.redirect('/libraries');
 });
 
 // Route to display libraries
@@ -426,7 +426,7 @@ app.get('/register', (req, res) => {
 
 // Catch-all route for unknown requests
 app.get('/*', (req, res) => {
-    res.status(404).render('login', { message: `${req.path} - Unknown request!` });
+    res.status(404).render('libraries', { message: `${req.path} - Unknown request!` });
 });
 
 // Start the server
